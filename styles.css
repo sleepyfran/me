@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 1rem;
+}
+
+@media (min-width: 576px) {
+  body {
+    padding: 5rem;
+  }
+}
+
+@media (min-width: 1240px) {
+  body {
+    padding: 10rem;
+  }
+}
+
+:root {
+  --bg-color: #fdfdff;
+  --text-color: #1a1b25;
+  --link-color: #46af98;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1b25;
+    --text-color: #fdfdff;
+    --link-color: #7ccbba;
+  }
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+li:not(:first-child) {
+  margin-top: 0.3rem;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration-style: dotted;
+}
+
+em {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+}
+
+footer {
+  display: flex;
+  gap: 1rem;
+}
