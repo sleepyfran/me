@@ -1,0 +1,26 @@
+---
+type Props = {
+  includeAllPostsLink?: boolean;
+};
+
+const { includeAllPostsLink = false } = Astro.props;
+---
+
+<header>
+  <nav>
+    {includeAllPostsLink && <a href="/blog">👈 Back to all posts</a>}
+    <a href="/">sleepyfran.me</a>
+  </nav>
+</header>
+<style>
+  header {
+    padding: 1.8rem 0;
+  }
+
+  header nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3rem;
+  }
+</style>

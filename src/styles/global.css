@@ -2,6 +2,8 @@
   --bg-color: #fdfdff;
   --text-color: #1a1b25;
   --link-color: #46af98;
+  --blockquote-bg-color: #f0f0f0;
+  --blockquote-border-color: #e0e0e0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -9,7 +11,14 @@
     --bg-color: #1a1b25;
     --text-color: #fdfdff;
     --link-color: #7ccbba;
+    --blockquote-bg-color: #2a2a2a;
+    --blockquote-border-color: #3a3a3a;
   }
+}
+
+html,
+body {
+  height: 100%;
 }
 
 body {
@@ -17,18 +26,22 @@ body {
   color: var(--text-color);
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-  padding: 1rem;
+  padding: 0 1rem 0 1rem;
+}
+
+img {
+  max-width: 100%;
 }
 
 @media (min-width: 576px) {
   body {
-    padding: 5rem;
+    padding: 0 5rem 0 5rem;
   }
 }
 
 @media (min-width: 1240px) {
   body {
-    padding: 10rem;
+    padding: 0 10rem 0 10rem;
   }
 }
 
@@ -46,7 +59,9 @@ em {
   text-decoration-style: wavy;
 }
 
-footer {
-  display: flex;
-  gap: 1rem;
+blockquote {
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  background-color: var(--blockquote-bg-color);
+  border-left: 0.25em solid var(--blockquote-border-color);
 }

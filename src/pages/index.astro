@@ -1,17 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sleepyfran's homepage</title>
-    <base target="_blank" />
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE } from "../consts";
+---
 
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={"Homepage"} />
   </head>
   <body>
     <h1>Hi! I'm Fran and this is my little internet corner.</h1>
-    <section>
+    <main>
       <p>
         This place, whatever it is it's supposed to be, is not quite ready yet,
         but these are some of the cool things I've worked or am currently
@@ -50,15 +50,15 @@
           thought was a great idea. Anyways, I promise the music is not half as
           bad as the name. Oh, and since we're talking music, I was also part of
           a band called
-          <a href="https://lastfarewell.bandcamp.com/">Last Farewell</a> back
-          when I lived in Spain where we made some pretty cool
-          blackgaze/post-hardcore music.
+          <a href="https://lastfarewell.bandcamp.com/">Last Farewell</a> back when
+          I lived in Spain where we made some pretty cool blackgaze/post-hardcore
+          music.
         </li>
         <li>
           I also have a little
           <a href="https://sleepyfran.github.io/blog/">blog</a>
-          that I barely update with random articles. The most interesting
-          probably being my article on
+          that I barely update with random articles. The most interesting probably
+          being my article on
           <a href="https://sleepyfran.github.io/blog/posts/fsharp/ce-in-fsharp/"
             >F#'s computation expressions</a
           >
@@ -71,12 +71,7 @@
         know that feeling when you feel like you just <em>need</em> to have that
         domain? Yeah, me too.
       </p>
-    </section>
-
-    <footer>
-      <a href="https://github.com/sleepyfran">github</a>
-      <a href="https://fosstodon.org/@sleepyfrans" rel="me">mastodon</a>
-      <a href="https://www.linkedin.com/in/sleepyfran/">linkedin</a>
-    </footer>
+    </main>
+    <Footer />
   </body>
 </html>
