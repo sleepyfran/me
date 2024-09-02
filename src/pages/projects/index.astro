@@ -1,0 +1,76 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE } from "../../consts";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={"All posts"} />
+  </head>
+  <body>
+    <Header />
+
+    <main>
+      <section>
+        <ul>
+          {
+            projects.map((project) => (
+              <li>
+                <a href={project.data.url ?? `/projects/${project.id}/`}>
+                  <h4 class="title">{project.data.name}</h4>
+                </a>
+                <p>{project.data.description}</p>
+                {project.data.techStack && (
+                  <pre>{project.data.techStack.join(", ")}</pre>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  li {
+    background-color: var(--card-app-bg-color);
+    border: 1px solid var(--card-app-border-color);
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    padding: 1em;
+    transition:
+      transform 0.3s,
+      opacity 0.2s;
+    width: 100%;
+  }
+
+  li p {
+    margin: 0;
+  }
+
+  h4 {
+    margin: 0;
+  }
+</style>

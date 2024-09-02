@@ -1,0 +1,59 @@
+---
+import { getEntry } from "astro:content";
+import Project from "../../layouts/Project.astro";
+
+const game = await getEntry("projects", "duets");
+---
+
+<Project {...game.data}>
+  <p>
+    I'm pretty sure I'll be 80 by the time I'll finish this, but this is my
+    little redemption to text-based games in the form of a music/life simulation
+    game. I keep adding features and changing the game mechanics, but it's
+    already playable if text-based games are your jam (hah, get that?).
+
+    <br />
+    <br />
+
+    The game is written entirely in F#, using Spectre.Console for the terminal
+    components. There's still no binaries available because I don't want to deal
+    with signing, distribution and, even worse, savegame compatibility (which
+    I'm breaking all the time). But you can check the source code on GitHub and
+    build it yourself. It started out as a very simple music-only game, but it
+    eventually evolved into a life simulation game with a music career. You can
+    now manage your own band, write songs, record albums, go on tour, and even
+    get a day job to pay the bills. My goal was always to make the game set on
+    the real world, so the cities depicted in the game are real, although I'm
+    still trying to figure out how to make the experience in each of them
+    unique.
+  </p>
+
+  <a href={game.data.repoUrl}>To the repo!</a>
+
+  <div class="showcase">
+    <img src="/img/duets/duets-1.png" />
+    <img src="/img/duets/duets-2.png" />
+    <img src="/img/duets/duets-3.png" />
+    <img src="/img/duets/duets-4.png" />
+  </div>
+</Project>
+
+<style>
+  div.showcase {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    overflow: auto;
+    padding: 1rem 2rem;
+    scrollbar-width: none;
+  }
+
+  div.showcase img {
+    border-radius: 0.5rem;
+    transition: transform 0.3s;
+  }
+
+  div.showcase img:hover {
+    transform: scale(1.01);
+  }
+</style>

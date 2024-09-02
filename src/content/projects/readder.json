@@ -1,0 +1,10 @@
+{
+  "name": "readder",
+  "description": "A little web-app that let's you read stuff from Reddit based on how much time you have.",
+  "techStack": [
+    "F#",
+    "Fable"
+  ],
+  "url": "https://sleepyfran.github.io/readder/",
+  "repo": "https://github.com/sleepyfran/readder/"
+}

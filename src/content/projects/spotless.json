@@ -1,0 +1,11 @@
+{
+  "name": "spotless",
+  "description": "When I listen to music I rarely listen to individual songs but rather to full albums, and I always missed a way to quickly play all albums of a band either shuffled or ordered in a specific way. Or just to browse my library by genre (remember the good old iTunes days?). So I made a web-app that connects with your Spotify account and does just that.",
+  "techStack": [
+    "TypeScript",
+    "React",
+    "RxJS"
+  ],
+  "url": "https://sleepyfran.github.io/spotless/",
+  "repo": "https://github.com/sleepyfran/spotless/"
+}

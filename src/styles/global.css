@@ -83,13 +83,14 @@ img {
   }
 }
 
-li:not(:first-child) {
-  margin-top: 0.3rem;
-}
-
 a {
   color: var(--link-color);
   text-decoration-style: dotted;
+  transition: filter 0.3s;
+}
+
+a:hover {
+  filter: brightness(1.2);
 }
 
 em {

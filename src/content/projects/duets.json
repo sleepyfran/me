@@ -1,0 +1,8 @@
+{
+  "name": "duets",
+  "description": "A text-based simulation game that lets you live the life of a musician.",
+  "techStack": [
+    "F#"
+  ],
+  "repoUrl": "https://github.com/sleepyfran/duets"
+}
