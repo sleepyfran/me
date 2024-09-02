@@ -65,3 +65,7 @@ blockquote {
   background-color: var(--blockquote-bg-color);
   border-left: 0.25em solid var(--blockquote-border-color);
 }
+
+pre.astro-code {
+  padding: 1rem;
+}
