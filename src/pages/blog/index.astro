@@ -55,6 +55,9 @@ const posts = (await getCollection("blog")).sort(
                     <Date date={post.data.pubDate} />
                   </p>
                   <h4 class="title">{post.data.title}</h4>
+                  {post.data.tags.length && (
+                    <pre>{post.data.tags.join(", ")}</pre>
+                  )}
                 </a>
               </li>
             ))
