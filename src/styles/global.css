@@ -1,9 +1,25 @@
+@font-face {
+  font-family: "SUSE";
+  src: url("/fonts/SUSE.ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg-color: #fdfdff;
   --text-color: #1a1b25;
   --link-color: #46af98;
   --blockquote-bg-color: #f0f0f0;
   --blockquote-border-color: #e0e0e0;
+  --card-app-bg-color: #f0f0f0;
+  --card-app-border-color: #e0e0e0;
+  --card-app-text-color: #1a1b25;
+  --card-blog-bg-color: #ff5747;
+  --card-blog-border-color: #e0e0e0;
+  --card-blog-text-color: #fdfdff;
+  --card-music-bg-color: #629393;
+  --card-music-border-color: #e0e0e0;
+  --card-music-text-color: #fdfdff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,6 +29,15 @@
     --link-color: #7ccbba;
     --blockquote-bg-color: #2a2a2a;
     --blockquote-border-color: #3a3a3a;
+    --card-app-bg-color: #2a2a2a;
+    --card-app-border-color: #3a3a3a;
+    --card-app-text-color: #fdfdff;
+    --card-blog-bg-color: #ff5747;
+    --card-blog-border-color: #3a3a3a;
+    --card-blog-text-color: #fdfdff;
+    --card-music-bg-color: #416262;
+    --card-music-border-color: #3a3a3a;
+    --card-music-text-color: #fdfdff;
   }
 }
 
@@ -24,9 +49,22 @@ body {
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "SUSE", Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0 1rem 0 1rem;
+}
+
+p {
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
 }
 
 img {

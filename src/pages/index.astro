@@ -1,6 +1,8 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
+import Grid from "../components/Grid.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE } from "../consts";
 ---
@@ -11,70 +13,43 @@ import { SITE_TITLE } from "../consts";
     <BaseHead title={SITE_TITLE} description={"Homepage"} />
   </head>
   <body>
-    <Header />
-
-    <h1>Hi! I'm Fran and this is my little internet corner.</h1>
     <main>
+      <div id="intro">
+        <img
+          src="/img/menion.jpg"
+          alt="That's Fran right dressed as a Menion"
+        />
+        <h2>Hi! I'm Fran and this is my little internet corner.</h2>
+      </div>
       <p>
-        This place, whatever it is it's supposed to be, is not quite ready yet,
-        but these are some of the cool things I've worked or am currently
-        working on:
+        I'm a software engineer at Microsoft. I love doing open source on the
+        side, making music and writing blog posts once every blue moon.
       </p>
-
-      <ul>
-        <li>
-          <a href="https://github.com/sleepyfran/duets">duets</a>: I'm pretty
-          sure I'll be 80 by the time I'll finish this, but this is my little
-          redemption to text-based games in the form of a music/life simulation
-          game. I keep adding features and changing the game mechanics, but it's
-          already playable if text-based games are your jam (hah, get that?).
-        </li>
-        <li>
-          <a href="https://sleepyfran.github.io/readder/">readder</a>: A little
-          web-app that let's you read stuff from Reddit based on how much time
-          you have.
-        </li>
-        <li>
-          <a href="https://sleepyfran.github.io/spotless/">spotless</a>: When I
-          listen to music I rarely listen to individual songs but rather to full
-          albums, and I always missed a way to quickly play all albums of a band
-          either shuffled or ordered in a specific way. Or just to browse my
-          library by genre (remember the good old iTunes days?). So I made a
-          web-app that connects with your Spotify account and does just that.
-          I'm currently rewriting it to work with multiple providers since I've
-          also started to buy a lot more music and keep it locally, but it's
-          still very WIP, so in the meantime spotless all the things! :^)
-        </li>
-        <li>
-          Once in a blue moon I make music under the name of
-          <a href="https://twistedfaceoffadingbeauty.bandcamp.com"
-            >Twisted Face of Fading Beauty</a
-          >, which 14-year-old me, obsessed with Post-Rock bands with long names
-          thought was a great idea. Anyways, I promise the music is not half as
-          bad as the name. Oh, and since we're talking music, I was also part of
-          a band called
-          <a href="https://lastfarewell.bandcamp.com/">Last Farewell</a> back when
-          I lived in Spain where we made some pretty cool blackgaze/post-hardcore
-          music.
-        </li>
-        <li>
-          I also have a little
-          <a href="/blog/">blog</a>
-          that I barely update with random articles. The most interesting probably
-          being my article on
-          <a href="/blog/fsharp-computation-expressions/"
-            >F#'s computation expressions</a
-          >
-          for the 2022 F# Advent Calendar.
-        </li>
-      </ul>
-
-      <p>
-        I honestly don't even know what I'm gonna do with this page, but you
-        know that feeling when you feel like you just <em>need</em> to have that
-        domain? Yeah, me too.
-      </p>
+      <Grid>
+        <ProjectCard type="dev" />
+        <ProjectCard type="blog" />
+        <ProjectCard type="music" />
+      </Grid>
     </main>
     <Footer />
   </body>
 </html>
+
+<style>
+  main {
+    padding-top: 10rem;
+  }
+
+  div#intro {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  div#intro img {
+    border: 1px solid var(--text-color);
+    border-radius: 50%;
+    height: 3em;
+    width: 3em;
+  }
+</style>

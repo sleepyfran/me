@@ -1,0 +1,76 @@
+---
+type ProjectType = "dev" | "blog" | "music";
+
+interface Props {
+  type: ProjectType;
+}
+
+const { type } = Astro.props;
+
+const typeName =
+  type === "dev" ? "App/Games" : type === "blog" ? "Blog" : "Music";
+const typeHref =
+  type === "dev"
+    ? "/apps"
+    : type === "blog"
+      ? "/blog"
+      : "https://twistedfaceoffadingbeauty.bandcamp.com/";
+---
+
+<a class={`card ${type}`} href={typeHref}>
+  <h2>{typeName}</h2>
+</a>
+
+<style>
+  a.card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    height: 6em;
+    padding: 0.5em 1em;
+    transition:
+      transform 0.3s,
+      opacity 0.2s;
+    width: 14em;
+  }
+
+  @media screen and (max-width: 628px) {
+    a.card {
+      width: 100%;
+    }
+  }
+
+  a.card:hover {
+    transform: scale(1.01) rotate(-2deg);
+    cursor: pointer;
+  }
+
+  a.card.dev {
+    background-color: var(--card-app-bg-color);
+    border-color: var(--card-app-border-color);
+    color: var(--card-text-color);
+  }
+
+  a.card.blog {
+    background-color: var(--card-blog-bg-color);
+    border-color: var(--card-blog-border-color);
+    color: var(--card-blog-text-color);
+  }
+
+  a.card.music {
+    background-color: var(--card-music-bg-color);
+    border-color: var(--card-music-border-color);
+    color: var(--card-music-text-color);
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+</style>
