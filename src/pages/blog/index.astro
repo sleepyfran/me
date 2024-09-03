@@ -25,10 +25,22 @@ const posts = (await getCollection("blog")).sort(
         padding: 0;
       }
 
-      li > a {
+      li > div {
         display: flex;
         flex-direction: column;
         justify-content: center;
+      }
+
+      li > div > p {
+        margin: 0;
+      }
+
+      li > div > a > h4 {
+        margin: 0.5em 0;
+      }
+
+      li > div > pre {
+        margin: 0;
       }
 
       li > a > .title {
@@ -50,15 +62,17 @@ const posts = (await getCollection("blog")).sort(
           {
             posts.map((post) => (
               <li>
-                <a href={`/blog/${post.slug}/`}>
+                <div>
                   <p class="date">
                     <Date date={post.data.pubDate} />
                   </p>
-                  <h4 class="title">{post.data.title}</h4>
+                  <a href={`/blog/${post.slug}/`}>
+                    <h4 class="title">{post.data.title}</h4>
+                  </a>
                   {post.data.tags.length && (
                     <pre>{post.data.tags.join(", ")}</pre>
                   )}
-                </a>
+                </div>
               </li>
             ))
           }
