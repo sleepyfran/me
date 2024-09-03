@@ -6,6 +6,7 @@ const projects = defineCollection({
     name: z.string(),
     description: z.string(),
     techStack: z.array(z.string()),
+    useInternalPage: z.boolean().optional(),
     url: z.string().optional(),
     repoUrl: z.string().optional(),
   }),

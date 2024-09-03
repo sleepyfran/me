@@ -4,5 +4,6 @@
   "techStack": [
     "F#"
   ],
+  "useInternalPage": true,
   "repoUrl": "https://github.com/sleepyfran/duets"
 }
