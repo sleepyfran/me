@@ -5,6 +5,13 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "DepartureMono";
+  src: url("/fonts/DepartureMono.otf") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg-color: #fdfdff;
   --text-color: #1a1b25;
@@ -107,4 +114,9 @@ blockquote {
 
 pre.astro-code {
   padding: 1rem;
+}
+
+code {
+  font-family: "DepartureMono", monospace;
+  font-size: 0.8rem;
 }
