@@ -1,0 +1,9 @@
+{
+  "name": "itunespy",
+  "description": "This was my first ever open-source project. It's a simple Python wrapper for the iTunes API, which I initially made because I wanted to make a YouTube music player that would fetch library data from iTunes... Of course that never happened, but my little wrapper currently has more than 100k downloads on PyPi and it's still maintained by the community!",
+  "techStack": [
+    "Python"
+  ],
+  "url": "https://pypi.org/project/itunespy/",
+  "repoUrl": "https://github.com/sleepyfran/itunespy"
+}
