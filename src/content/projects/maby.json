@@ -1,0 +1,10 @@
+{
+  "name": "maby",
+  "description": "Back when I first had my daughter, I found this idea of tracking feedings, diaper changes and sleep times interesting and I wanted to have an excuse to build a proper SwiftUI app, so perfect match. This also made me write a few articles about interesting things I found while developing with Swift on my blog, so double win!",
+  "techStack": [
+    "Swift",
+    "SwiftUI"
+  ],
+  "url": "https://github.com/sleepyfran/maby",
+  "repoUrl": "https://github.com/sleepyfran/maby"
+}
