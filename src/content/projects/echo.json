@@ -1,0 +1,11 @@
+{
+  "name": "echo",
+  "description": "Echo is a music player that can play music from different sources, like OneDrive or Spotify. It puts together all your music in one place so that you don't have to switch between apps to see your whole library. On top of that, it focuses on albums instead of songs and brings genres back into the spotlight.",
+  "techStack": [
+    "TypeScript",
+    "Lit",
+    "EffectTS"
+  ],
+  "url": "https://echo.sleepyfran.me/",
+  "repoUrl": "https://github.com/sleepyfran/echo/"
+}

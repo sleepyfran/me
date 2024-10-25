@@ -1,12 +1,24 @@
 ---
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
-import ProjectCard from "../../components/ProjectCard.astro";
 import Footer from "../../components/Footer.astro";
+import ProjectItem from "../../components/ProjectItem.astro";
 import { SITE_TITLE } from "../../consts";
 import { getCollection } from "astro:content";
+import Project from "../../layouts/Project.astro";
 
-const projects = await getCollection("projects");
+const allProjects = await getCollection("projects");
+const [projects, archivedProjects] = allProjects.reduce(
+  (acc, project) => {
+    if (project.data.archived) {
+      acc[1].push(project);
+    } else {
+      acc[0].push(project);
+    }
+    return acc;
+  },
+  [[], []] as [typeof allProjects, typeof allProjects]
+);
 ---
 
 <!doctype html>
@@ -20,25 +32,12 @@ const projects = await getCollection("projects");
     <main>
       <section>
         <ul>
-          {
-            projects.map((project) => (
-              <li>
-                <a
-                  href={
-                    project.data.useInternalPage
-                      ? `/projects/${project.id}/`
-                      : project.data.url
-                  }
-                >
-                  <h4 class="title">{project.data.name}</h4>
-                </a>
-                <p>{project.data.description}</p>
-                {project.data.techStack && (
-                  <pre>{project.data.techStack.join(", ")}</pre>
-                )}
-              </li>
-            ))
-          }
+          {projects.map((project) => <ProjectItem project={project} />)}
+        </ul>
+        <hr />
+        <h3>Archive</h3>
+        <ul>
+          {archivedProjects.map((project) => <ProjectItem project={project} />)}
         </ul>
       </section>
     </main>
@@ -54,29 +53,7 @@ const projects = await getCollection("projects");
     padding: 0;
   }
 
-  li {
-    background-color: var(--card-app-bg-color);
-    border: 1px solid var(--card-app-border-color);
-    border-radius: 1rem;
-    box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.2);
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    height: 100%;
-    padding: 1em;
-    transition:
-      transform 0.3s,
-      opacity 0.2s;
-    width: 100%;
-  }
-
-  li p {
-    margin: 0;
-  }
-
-  h4 {
-    margin: 0;
+  hr {
+    margin: 3rem 0;
   }
 </style>

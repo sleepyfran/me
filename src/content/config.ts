@@ -9,6 +9,7 @@ const projects = defineCollection({
     useInternalPage: z.boolean().optional(),
     url: z.string().optional(),
     repoUrl: z.string().optional(),
+    archived: z.boolean().optional(),
   }),
 });
 
