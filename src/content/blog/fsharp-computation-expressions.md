@@ -448,7 +448,7 @@ And there we go, it works!
 
 # Adding more stuff!
 
-Of course only supporting titles and headers would make for very boring presentations, so let's spicy everything up a bit by adding support for text and images inside of slides. Starting, of course, by modifying our domain:
+Of course only supporting titles and headers would make for very boring presentations, so let's spice everything up a bit by adding support for text and images inside of slides. Starting, of course, by modifying our domain:
 
 ```fsharp
 type SlideContent =
