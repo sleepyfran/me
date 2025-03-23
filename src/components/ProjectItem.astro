@@ -8,7 +8,7 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<li class={project.data.archived ? "archived" : ""}>
+<div class={project.data.archived ? "project archived" : "project"}>
   <div class="header">
     <a
       href={project.data.useInternalPage
@@ -27,7 +27,7 @@ const { project } = Astro.props;
   </div>
   <p>{project.data.description}</p>
   {project.data.techStack && <pre>{project.data.techStack.join(", ")}</pre>}
-</li>
+</div>
 
 <style>
   div.header {
@@ -38,22 +38,20 @@ const { project } = Astro.props;
     width: 100%;
   }
 
-  li {
+  div.project {
     background-color: var(--card-app-bg-color);
     border: 1px solid var(--card-app-border-color);
     border-radius: 1rem;
-    box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
     height: 100%;
     padding: 1em;
     width: 100%;
   }
 
-  li.archived {
+  div.archived {
     filter: opacity(0.5) grayscale(1);
   }
 

@@ -5,7 +5,7 @@ import Footer from "../../components/Footer.astro";
 import ProjectItem from "../../components/ProjectItem.astro";
 import { SITE_TITLE } from "../../consts";
 import { getCollection } from "astro:content";
-import Project from "../../layouts/Project.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const allProjects = await getCollection("projects");
 const [projects, archivedProjects] = allProjects.reduce(
@@ -22,35 +22,55 @@ const [projects, archivedProjects] = allProjects.reduce(
 ---
 
 <!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={"All posts"} />
-  </head>
-  <body>
-    <Header />
-
-    <main>
-      <section>
-        <ul>
-          {projects.map((project) => <ProjectItem project={project} />)}
-        </ul>
-        <hr />
-        <h3>Archive</h3>
-        <ul>
-          {archivedProjects.map((project) => <ProjectItem project={project} />)}
-        </ul>
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+<BaseLayout description="All projects">
+  <section>
+    <ul>
+      {
+        projects.map((project) => (
+          <li>
+            <ProjectItem project={project} />
+          </li>
+        ))
+      }
+    </ul>
+    <hr />
+    <h3>Archive</h3>
+    <ul>
+      {
+        archivedProjects.map((project) => (
+          <li>
+            <ProjectItem project={project} />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
 
 <style>
-  ul {
+  body {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main {
+    max-width: 60rem;
+  }
+
+  ul {
+    columns: 18rem;
     gap: 1rem;
     padding: 0;
+  }
+
+  li {
+    break-inside: avoid;
+    list-style: none;
+  }
+
+  li + li {
+    margin-top: 1rem;
   }
 
   hr {
