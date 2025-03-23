@@ -40,6 +40,12 @@ const { title, description, pubDate, updatedDate } = Astro.props;
     }
   }
 
+  @media screen and (max-width: 500px) {
+    .prose {
+      max-width: 20rem;
+    }
+  }
+
   .title {
     display: flex;
     flex-direction: column;
