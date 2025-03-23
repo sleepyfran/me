@@ -4,7 +4,8 @@
 
 <header>
   <nav>
-    <a href="/">sleepyfran.me</a>
+    <a class="root" href="/">sleepyfran.me</a>
+    <span class="separator">/</span>
     <a href="/projects">app/games</a>
     <a href="/blog">blog</a>
     <a href="/music">music</a>
@@ -21,5 +22,20 @@
     justify-content: flex-start;
     gap: 3rem;
     line-height: 1rem;
+  }
+
+  .separator {
+    font-weight: 200;
+  }
+
+  a.root {
+    font-weight: 200;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+  }
+
+  a.root:hover {
+    text-decoration: underline;
   }
 </style>
