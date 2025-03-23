@@ -14,7 +14,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       </p>
 
       <iframe
-        style="border: 0; width: 400px; height: 340px;"
+        style="border: 0; width: 300px; height: 340px;"
         src="https://bandcamp.com/EmbeddedPlayer/album=4134533801/size=large/bgcol=ffffff/linkcol=63b2cc/artwork=small/transparent=true/"
         seamless></iframe>
 
@@ -33,7 +33,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       </p>
 
       <iframe
-        style="border: 0; width: 400px; height: 340px;"
+        style="border: 0; width: 300px; height: 340px;"
         src="https://bandcamp.com/EmbeddedPlayer/album=277383641/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/"
         seamless></iframe>
       <p>
@@ -44,7 +44,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
   <style>
     section {
-      columns: 20rem;
+      display: flex;
+      flex-direction: column;
       gap: 1rem;
       padding: 0;
     }
@@ -65,7 +66,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       background-color: var(--card-app-bg-color);
       border: 1px solid var(--card-app-border-color);
       border-radius: 1rem;
-      box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.2);
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
