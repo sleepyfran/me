@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout description="Music I've done!">
+  <section>
+    <div class="music-project">
+      <h2>tfofb.</h2>
+      <p>
+        Once in a blue moon I make music under the name of Twisted Face of
+        Fading Beauty, which 14-year-old me, obsessed with Post-Rock bands with
+        long names thought was a great idea. Anyways, I promise the music is not
+        half as bad as the name:
+      </p>
+
+      <iframe
+        style="border: 0; width: 400px; height: 340px;"
+        src="https://bandcamp.com/EmbeddedPlayer/album=4134533801/size=large/bgcol=ffffff/linkcol=63b2cc/artwork=small/transparent=true/"
+        seamless></iframe>
+
+      <p>
+        More in <a href="https://twistedfaceoffadingbeauty.bandcamp.com"
+          >Bandcamp</a
+        >
+      </p>
+    </div>
+
+    <div class="music-project">
+      <h2>Last Farewell</h2>
+      <p>
+        I was also part of a band called Last Farewell back when I lived in
+        Spain where we made some pretty cool blackgaze/post-hardcore music:
+      </p>
+
+      <iframe
+        style="border: 0; width: 400px; height: 340px;"
+        src="https://bandcamp.com/EmbeddedPlayer/album=277383641/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/"
+        seamless></iframe>
+      <p>
+        More in <a href="https://lastfarewell.bandcamp.com">Bandcamp</a>
+      </p>
+    </div>
+  </section>
+
+  <style>
+    section {
+      columns: 20rem;
+      gap: 1rem;
+      padding: 0;
+    }
+
+    div.music-project + div.music-project {
+      margin-top: 2rem;
+    }
+
+    h2 {
+      margin: 0;
+    }
+
+    p {
+      margin: 0.5em 0;
+    }
+
+    div.music-project {
+      background-color: var(--card-app-bg-color);
+      border: 1px solid var(--card-app-border-color);
+      border-radius: 1rem;
+      box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 100%;
+      padding: 1em;
+      width: 100%;
+    }
+  </style>
+</BaseLayout>

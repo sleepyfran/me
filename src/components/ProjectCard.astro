@@ -10,11 +10,7 @@ const { type } = Astro.props;
 const typeName =
   type === "dev" ? "App/Games" : type === "blog" ? "Blog" : "Music";
 const typeHref =
-  type === "dev"
-    ? "/projects"
-    : type === "blog"
-      ? "/blog"
-      : "https://twistedfaceoffadingbeauty.bandcamp.com/";
+  type === "dev" ? "/projects" : type === "blog" ? "/blog" : "/music";
 ---
 
 <a class={`card ${type}`} href={typeHref}>
