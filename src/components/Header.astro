@@ -5,14 +5,18 @@
 <header>
   <nav>
     <a class="root" href="/">sleepyfran.me</a>
-    <a href="/projects">app/games</a>
-    <a href="/blog">blog</a>
-    <a href="/music">music</a>
+    <span class="separator">/</span>
+    <div class="items">
+      <a href="/projects">app/games</a>
+      <a href="/blog">blog</a>
+      <a href="/music">music</a>
+    </div>
   </nav>
 </header>
 <style>
   header {
     padding: 1.8rem 0;
+    width: 100%;
   }
 
   header nav {
@@ -21,6 +25,15 @@
     justify-content: flex-start;
     gap: 3rem;
     line-height: 1rem;
+  }
+
+  header nav .items {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .separator {
+    font-weight: 200;
   }
 
   a.root {
@@ -32,5 +45,27 @@
 
   a.root:hover {
     text-decoration: underline;
+  }
+
+  @media screen and (max-width: 500px) {
+    header nav {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    header nav .items {
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    a.root {
+      align-self: flex-start;
+      font-weight: bold;
+      color: var(--link-color);
+    }
+
+    .separator {
+      display: none;
+    }
   }
 </style>
