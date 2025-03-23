@@ -1,8 +1,5 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import Date from "../components/Date.astro";
 import BaseLayout from "./BaseLayout.astro";
 
@@ -12,34 +9,35 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 ---
 
 <BaseLayout description={description}>
-  <main>
-    <Header />
-    <article>
-      <div class="prose">
-        <div class="title">
-          <h1>{title}</h1>
-          <div class="date">
-            <Date date={pubDate} />
-            {
-              updatedDate && (
-                <div class="last-updated-on">
-                  Last updated on <Date date={updatedDate} />
-                </div>
-              )
-            }
-          </div>
+  <article>
+    <div class="prose">
+      <div class="title">
+        <h1>{title}</h1>
+        <div class="date">
+          <Date date={pubDate} />
+          {
+            updatedDate && (
+              <div class="last-updated-on">
+                Last updated on <Date date={updatedDate} />
+              </div>
+            )
+          }
         </div>
-        <slot />
       </div>
-    </article>
-  </main></BaseLayout
->
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
 
 <style>
   .prose {
-    width: 920px;
-    max-width: calc(100% - 2em);
     color: var(--text-color);
+  }
+
+  @media screen and (max-width: 900px) {
+    .prose {
+      max-width: 30rem;
+    }
   }
 
   .title {
