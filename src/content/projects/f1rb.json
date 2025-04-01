@@ -1,0 +1,7 @@
+{
+  "name": "f1 rewatch buddy",
+  "description": "Little webpage I made to help me track my progress while re-watching old Formula 1 seasons. It includes a bunch of goodies to help watch them in context, showing qualifying results, standings after the race and more useful information.",
+  "techStack": ["Astro", "TypeScript"],
+  "url": "https://f1.sleepyfran.me/",
+  "repoUrl": "https://github.com/sleepyfran/f1-rewatch-buddy/"
+}
