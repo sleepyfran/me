@@ -3,6 +3,9 @@ import { getEntry } from "astro:content";
 import Project from "../../layouts/Project.astro";
 
 const game = await getEntry("projects", "duets");
+if (!game) {
+  throw new Error("Missing duets project content");
+}
 ---
 
 <Project {...game.data}>
