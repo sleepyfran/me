@@ -13,32 +13,29 @@ const [projects, archivedProjects] = allProjects.reduce(
     }
     return acc;
   },
-  [[], []] as [typeof allProjects, typeof allProjects]
+  [[], []] as [typeof allProjects, typeof allProjects],
 );
 ---
 
 <!doctype html>
 <BaseLayout description="All projects">
   <section>
+    <h1>app/games</h1>
     <ul>
-      {
-        projects.map((project) => (
-          <li>
-            <ProjectItem project={project} />
-          </li>
-        ))
-      }
+      {projects.map((project) => (
+        <li>
+          <ProjectItem project={project} />
+        </li>
+      ))}
     </ul>
     <hr />
     <h3>Archive</h3>
     <ul>
-      {
-        archivedProjects.map((project) => (
-          <li>
-            <ProjectItem project={project} />
-          </li>
-        ))
-      }
+      {archivedProjects.map((project) => (
+        <li>
+          <ProjectItem project={project} />
+        </li>
+      ))}
     </ul>
   </section>
 </BaseLayout>
@@ -55,8 +52,8 @@ const [projects, archivedProjects] = allProjects.reduce(
   }
 
   ul {
-    columns: 3 18rem;
-    gap: 1rem;
+    columns: 2 24rem;
+    column-gap: 2rem;
     padding: 0;
   }
 
@@ -65,11 +62,11 @@ const [projects, archivedProjects] = allProjects.reduce(
     list-style: none;
   }
 
-  li + li {
-    margin-top: 1rem;
+  h1 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    margin: 0 0 2rem;
   }
-
-  hr {
-    margin: 3rem 0;
+  h3 {
+    color: var(--yellow-color);
   }
 </style>

@@ -1,23 +1,38 @@
----
-
----
-
-<hr />
 <footer>
-  As seen on:
-  <a href="https://github.com/sleepyfran">github</a>
-  <a href="https://hachyderm.io/@sleepyfran" rel="me">mastodon</a>
-  <a href="https://bsky.app/profile/sleepyfran.me">bluesky</a>
-  <a href="https://www.linkedin.com/in/sleepyfran/">linkedin</a>
+  <div class="rule" aria-hidden="true"></div>
+  <span class="prompt">as seen in:</span>
+  <div class="links">
+    <a class="terminal-link" href="https://github.com/sleepyfran">
+      github
+    </a>
+    <a class="terminal-link" href="https://hachyderm.io/@sleepyfran" rel="me">
+      mastodon
+    </a>
+    <a class="terminal-link" href="https://bsky.app/profile/sleepyfran.me">
+      bluesky
+    </a>
+    <a class="terminal-link" href="https://www.linkedin.com/in/sleepyfran/">
+      linkedin
+    </a>
+  </div>
 </footer>
 <style>
-  hr {
-    margin-top: 3rem;
-  }
-
   footer {
+    width: 100%;
+    padding: 2rem 0 4rem;
+  }
+  .rule {
+    border-top: 1px dashed var(--line-color);
+    margin-bottom: 1.5rem;
+  }
+  .prompt {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--yellow-color);
+  }
+  .links {
     display: flex;
-    gap: 1rem;
-    padding: 1.8rem 0;
+    flex-wrap: wrap;
+    gap: 0.2rem 1.2rem;
   }
 </style>

@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 <BaseLayout description="Music I've done!">
   <section>
+    <h1>music</h1>
     <div class="music-project">
       <h2>tfofb.</h2>
       <p>
@@ -16,12 +17,12 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <iframe
         style="border: 0; width: 300px; height: 340px;"
         src="https://bandcamp.com/EmbeddedPlayer/album=4134533801/size=large/bgcol=ffffff/linkcol=63b2cc/artwork=small/transparent=true/"
-        seamless></iframe>
+        seamless
+      ></iframe>
 
       <p>
-        More in <a href="https://twistedfaceoffadingbeauty.bandcamp.com"
-          >Bandcamp</a
-        >
+        More in{" "}
+        <a href="https://twistedfaceoffadingbeauty.bandcamp.com">Bandcamp</a>
       </p>
     </div>
 
@@ -35,7 +36,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <iframe
         style="border: 0; width: 300px; height: 340px;"
         src="https://bandcamp.com/EmbeddedPlayer/album=277383641/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/"
-        seamless></iframe>
+        seamless
+      ></iframe>
       <p>
         More in <a href="https://lastfarewell.bandcamp.com">Bandcamp</a>
       </p>
@@ -46,12 +48,17 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     section {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 2rem;
       padding: 0;
+      max-width: 52rem;
+    }
+    h1 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin: 0;
     }
 
     div.music-project + div.music-project {
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
 
     h2 {
@@ -63,16 +70,15 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     }
 
     div.music-project {
-      background-color: var(--card-app-bg-color);
-      border: 1px solid var(--card-app-border-color);
-      border-radius: 1rem;
-      box-sizing: border-box;
+      border-top: 1px dashed var(--line-color);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      height: 100%;
-      padding: 1em;
+      padding: 1.5rem 0;
       width: 100%;
+    }
+    iframe {
+      margin: 1rem 0;
     }
   </style>
 </BaseLayout>

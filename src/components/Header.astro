@@ -1,71 +1,96 @@
 ---
-
+const path = Astro.url.pathname;
 ---
 
-<header>
-  <nav>
-    <a class="root" href="/">sleepyfran.me</a>
-    <span class="separator">/</span>
-    <div class="items">
-      <a href="/projects">app/games</a>
-      <a href="/blog">blog</a>
-      <a href="/music">music</a>
-    </div>
+<header class="site-header">
+  <a class="wordmark" href="/" aria-label="sleepyfran home">
+    <em>sleepyfran</em>
+  </a>
+  <div class="rule" aria-hidden="true"></div>
+  <nav aria-label="Main navigation">
+    <a
+      class={
+        path.startsWith("/projects") ? "terminal-link current" : "terminal-link"
+      }
+      href="/projects"
+    >
+      app/games
+    </a>
+    <a
+      class={
+        path.startsWith("/blog") ? "terminal-link current" : "terminal-link"
+      }
+      href="/blog"
+    >
+      blog
+    </a>
+    <a
+      class={
+        path.startsWith("/music") ? "terminal-link current" : "terminal-link"
+      }
+      href="/music"
+    >
+      music
+    </a>
   </nav>
 </header>
+
 <style>
-  header {
-    padding: 1.8rem 0;
+  .site-header {
     width: 100%;
+    padding: 5.2rem 0 0;
   }
-
-  header nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 3rem;
-    line-height: 1rem;
-  }
-
-  header nav .items {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .separator {
-    font-weight: 200;
-  }
-
-  a.root {
-    font-weight: 200;
+  .wordmark {
+    display: inline-block;
+    font-size: clamp(1.45rem, 3.4vw, 2.1rem);
+    letter-spacing: -0.055em;
     color: var(--text-color);
+  }
+  .wordmark em {
+    color: var(--accent-color);
     text-decoration: none;
-    transition: all 0.5s ease-in-out;
+    font-style: italic;
   }
-
-  a.root:hover {
-    text-decoration: underline;
+  .wordmark:hover,
+  .wordmark:focus-visible {
+    background: transparent;
+    color: var(--text-color);
   }
-
-  @media screen and (max-width: 500px) {
-    header nav {
-      flex-direction: column;
-      gap: 0.5rem;
+  .wordmark:hover em,
+  .wordmark:focus-visible em {
+    background: var(--accent-color);
+    color: var(--bg-color);
+  }
+  .punctuation {
+    letter-spacing: 0;
+  }
+  .rule {
+    height: 1px;
+    margin: 2rem 0 2rem;
+    border-top: 2px dashed var(--line-color);
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.35rem;
+    align-items: center;
+  }
+  .current {
+    color: var(--pink-color);
+  }
+  nav .terminal-link:hover,
+  nav .terminal-link:focus-visible {
+    color: var(--bg-color);
+  }
+  @media (max-width: 600px) {
+    .site-header {
+      padding-top: 2.6rem;
     }
-
-    header nav .items {
-      align-items: flex-start;
-      width: 100%;
+    .rule {
+      margin: 4rem 0 1.5rem;
     }
-
-    a.root {
-      align-self: flex-start;
-      font-weight: bold;
-      color: var(--link-color);
-    }
-
-    .separator {
-      display: none;
+    nav {
+      gap: 0.15rem 0.8rem;
     }
   }
 </style>

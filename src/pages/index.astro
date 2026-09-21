@@ -1,53 +1,212 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Grid from "../components/Grid.astro";
-import ProjectCard from "../components/ProjectCard.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE } from "../consts";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={"Homepage"} />
-  </head>
-  <body>
-    <main>
-      <div id="intro">
-        <img
-          src="/img/menion.jpg"
-          alt="That's Fran right dressed as a Menion"
-        />
-        <h2>Hi! I'm Fran and this is my little internet corner.</h2>
-      </div>
-      <Grid>
-        <ProjectCard type="dev" />
-        <ProjectCard type="blog" />
-        <ProjectCard type="music" />
-      </Grid>
-    </main>
-    <Footer />
-  </body>
-</html>
+<BaseLayout
+  description="Fran's little internet corner: apps, games, writing, and music."
+  showHeader={false}
+>
+  <section class="intro" aria-labelledby="intro-title">
+    <img
+      src="/img/menion.jpg"
+      alt="Fran dressed as a Minion"
+      width="72"
+      height="72"
+    />
+    <h1
+      id="intro-title"
+      class="active-line"
+      data-type-line
+      aria-label="Hi! I'm Fran."
+    >
+      <span data-typed-text aria-hidden="true">
+        Hi! I'm Fran.
+      </span>
+    </h1>
+    <h3 data-type-line aria-label="This is my little internet corner.">
+      <span data-typed-text aria-hidden="true">
+        This is my little internet corner.
+      </span>
+    </h3>
+  </section>
+
+  <script is:inline>
+    (() => {
+      const lines = [...document.querySelectorAll(".intro [data-type-line]")];
+      if (lines.length !== 2) return;
+
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      if (reducedMotion) {
+        lines[0].classList.remove("active-line");
+        lines[1].classList.add("active-line");
+        return;
+      }
+
+      lines[1].classList.add("active-line");
+      lines[1].style.minHeight = `${lines[1].getBoundingClientRect().height}px`;
+      lines[1].classList.remove("active-line");
+
+      const text = lines.map(
+        (line) => line.querySelector("[data-typed-text]").textContent,
+      );
+      lines.forEach((line) => {
+        line.querySelector("[data-typed-text]").textContent = "";
+      });
+
+      const typeLine = (line, value) =>
+        new Promise((resolve) => {
+          const characters = [...value];
+          let index = 0;
+          line.classList.add("active-line");
+          const next = () => {
+            line.querySelector("[data-typed-text]").textContent +=
+              characters[index++];
+            if (index < characters.length) window.setTimeout(next, 65);
+            else resolve();
+          };
+          next();
+        });
+
+      (async () => {
+        await typeLine(lines[0], text[0]);
+        await new Promise((resolve) => window.setTimeout(resolve, 250));
+        lines[0].classList.remove("active-line");
+        await typeLine(lines[1], text[1]);
+      })();
+    })();
+  </script>
+  <section class="directory" aria-label="Explore this site">
+    <div class="section-title">
+      <span>directory</span>
+      <span aria-hidden="true">/ 03 entries</span>
+    </div>
+    <a class="entry" href="/projects">
+      <span class="index">01</span>
+      <span class="label">app/games</span>
+      <span class="arrow" aria-hidden="true">
+        ↗
+      </span>
+    </a>
+    <a class="entry" href="/blog">
+      <span class="index">02</span>
+      <span class="label">blog</span>
+      <span class="arrow" aria-hidden="true">
+        ↗
+      </span>
+    </a>
+    <a class="entry" href="/music">
+      <span class="index">03</span>
+      <span class="label">music</span>
+      <span class="arrow" aria-hidden="true">
+        ↗
+      </span>
+    </a>
+  </section>
+</BaseLayout>
 
 <style>
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .intro {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    column-gap: 1.5rem;
+    max-width: 58rem;
+    margin: 1rem 0 2rem;
   }
-
-  div#intro {
-    display: flex;
-    align-items: center;
-    gap: 1em;
+  h1 {
+    grid-column: 2;
+    margin: 0;
+    font-size: clamp(1.7rem, 5.5vw, 3.4rem);
+    letter-spacing: -0.07em;
   }
-
-  div#intro img {
-    border: 1px solid var(--text-color);
-    border-radius: 50%;
-    height: 3em;
-    width: 3em;
+  h3 {
+    grid-column: 2;
+    margin: 0.5rem 0 0;
+  }
+  .active-line [data-typed-text]::after {
+    content: "_";
+    color: var(--purple-color);
+    animation: cursor-blink 1s steps(1, end) infinite;
+  }
+  @keyframes cursor-blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  .intro img {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    object-fit: cover;
+    border: 1px solid var(--line-color);
+  }
+  .directory {
+    max-width: 52rem;
+  }
+  .section-title {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px dashed var(--line-color);
+    padding-bottom: 0.8rem;
+    color: var(--accent-color);
+  }
+  .section-title span:last-child {
+    color: var(--muted-color);
+  }
+  .entry {
+    display: grid;
+    grid-template-columns: 4rem 1fr auto;
+    gap: 1.2rem;
+    align-items: center;
+    padding: 1.05rem 0.5rem;
+    border-bottom: 1px dashed var(--muted-color);
+    color: var(--link-color);
+  }
+  .entry:hover,
+  .entry:focus-visible {
+    background: var(--link-color);
+    color: var(--bg-color);
+  }
+  .entry:active {
+    background: var(--text-color);
+  }
+  .index {
+    color: var(--muted-color);
+  }
+  .entry:hover .index,
+  .entry:focus-visible .index {
+    color: var(--bg-color);
+  }
+  .arrow {
+    color: var(--pink-color);
+  }
+  .entry:hover .arrow,
+  .entry:focus-visible .arrow {
+    color: var(--bg-color);
+  }
+  @media (max-width: 600px) {
+    .intro {
+      grid-template-columns: 3.5rem minmax(0, 1fr);
+      column-gap: 1rem;
+      margin: 2.6rem 0 4rem;
+    }
+    .intro img {
+      width: 3.5rem;
+      height: 3.5rem;
+      flex: none;
+    }
+    .entry {
+      grid-template-columns: 2rem 1fr auto;
+      gap: 0.6rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .active-line [data-typed-text]::after {
+      animation: none;
+    }
   }
 </style>

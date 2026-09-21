@@ -6,9 +6,10 @@ import { SITE_TITLE } from "../consts";
 
 interface Props {
   description: string;
+  showHeader?: boolean;
 }
 
-const { description } = Astro.props;
+const { description, showHeader = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,7 +18,7 @@ const { description } = Astro.props;
     <BaseHead title={SITE_TITLE} description={description} />
   </head>
   <body>
-    <Header />
+    {showHeader && <Header />}
 
     <main>
       <slot />
@@ -28,12 +29,20 @@ const { description } = Astro.props;
 
 <style>
   body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: min(80vw, 72rem);
+    margin-inline: auto;
   }
-
   main {
-    max-width: 60rem;
+    width: 100%;
+    max-width: 72rem;
+    padding-top: 2.5rem;
+  }
+  @media (max-width: 600px) {
+    body {
+      width: min(100% - 2rem, 72rem);
+    }
+    main {
+      padding-top: 1.5rem;
+    }
   }
 </style>
