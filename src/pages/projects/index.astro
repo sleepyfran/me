@@ -20,7 +20,7 @@ const [projects, archivedProjects] = allProjects.reduce(
 <!doctype html>
 <BaseLayout description="All projects">
   <section>
-    <h1>app/games</h1>
+    <h1 class="page-title">app/games</h1>
     <ul>
       {projects.map((project) => (
         <li>
@@ -63,7 +63,6 @@ const [projects, archivedProjects] = allProjects.reduce(
   }
 
   h1 {
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
     margin: 0 0 2rem;
   }
   h3 {

@@ -32,6 +32,14 @@ const path = Astro.url.pathname;
     >
       music
     </a>
+    <a
+      class={
+        path.startsWith("/about") ? "terminal-link current" : "terminal-link"
+      }
+      href="/about"
+    >
+      about me
+    </a>
   </nav>
 </header>
 

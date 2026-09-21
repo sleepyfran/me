@@ -11,7 +11,7 @@ const posts = (await getCollection("blog")).sort(
 <!doctype html>
 <BaseLayout description="All blog posts">
   <section>
-    <h1>blog</h1>
+    <h1 class="page-title">blog</h1>
     <ul>
       {posts.map((post) => (
         <li>
@@ -32,7 +32,6 @@ const posts = (await getCollection("blog")).sort(
 
 <style>
   h1 {
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
     margin: 0 0 2rem;
   }
   ul {

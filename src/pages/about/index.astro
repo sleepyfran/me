@@ -1,0 +1,234 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const experience = [
+  {
+    company: "SentinelOne",
+    location: "Prague, Czechia",
+    detail:
+      "Working on Singularity Hyperautomation, which lets security teams connect tools and build no-code workflows to enrich alerts and automate incident response.",
+    roles: [{ title: "Senior Software Engineer", dates: "Dec 2024 – present" }],
+  },
+  {
+    company: "Microsoft",
+    location: "Prague, Czechia",
+    detail:
+      "Worked on the web and desktop meeting experiences in Microsoft Teams, including Light Meetings, a fast, lightweight, single-use meeting experience.",
+    roles: [
+      { title: "Software Engineer II", dates: "Mar 2021 – Dec 2024" },
+      { title: "Software Engineer", dates: "Apr 2020 – Mar 2021" },
+    ],
+  },
+  {
+    company: "Playtomic",
+    location: "Madrid, Spain",
+    detail: "Developed and maintained a CRM for sports clubs.",
+    roles: [{ title: "Back End Developer", dates: "Aug 2019 – Mar 2020" }],
+  },
+];
+---
+
+<BaseLayout description="About Fran González Vázquez: software engineer, projects, music, and resume.">
+  <article class="about">
+    <div class="intro">
+      <div>
+        <h1 class="page-title">about me</h1>
+      </div>
+      <img
+        src="/img/menion.jpg"
+        alt="Fran dressed as a Minion"
+        width="112"
+        height="112"
+      />
+    </div>
+
+    <div class="bio">
+      <p>
+        Hi, I'm Fran! Originally from Spain, but I've been living in Prague for
+        the past seven years. I'm a software engineer, currently working on
+        Hyperautomation at SentinelOne. Before that, I spent almost five years
+        building meeting experiences for the world's most beloved piece of
+        software, Microsoft Teams.
+      </p>
+      <p>
+        Outside work, I make <a href="/projects">apps and games</a>, write about
+        things I learn on the <a href="/blog">blog</a> (as in, once every five
+        years), and sometimes make <a href="/music">music</a>.
+      </p>
+    </div>
+
+    <section aria-labelledby="experience-title">
+      <div class="section-title">
+        <h2 id="experience-title">at work</h2>
+      </div>
+      <ol class="company-list">
+        {experience.map((company) => (
+          <li>
+            <div class="company-heading">
+              <h3>{company.company}</h3>
+              <span>{company.location}</span>
+            </div>
+            <ol class="role-list">
+              {company.roles.map((role) => (
+                <li>
+                  <h4>{role.title}</h4>
+                  <span>{role.dates}</span>
+                </li>
+              ))}
+            </ol>
+            <p class="detail">{company.detail}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="continuation">
+        <span class="continuation-dots" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <a class="terminal-link" href="https://www.linkedin.com/in/sleepyfran/">
+          More on LinkedIn
+        </a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .about {
+    max-width: 58rem;
+  }
+  .intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed var(--line-color);
+  }
+  .eyebrow {
+    margin: 0 0 0.25rem;
+    color: var(--pink-color);
+  }
+  h1 {
+    margin: 0;
+  }
+  .intro img {
+    flex: none;
+    width: 7rem;
+    height: 7rem;
+    object-fit: cover;
+    border: 1px solid var(--line-color);
+  }
+  .bio {
+    max-width: 48rem;
+    margin-bottom: 3.5rem;
+  }
+  .bio p:last-child {
+    margin-bottom: 0;
+  }
+  .section-title {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: baseline;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px dashed var(--line-color);
+  }
+  h2 {
+    margin: 0;
+    color: var(--accent-color);
+    font-size: 1.2em;
+  }
+  .section-title span {
+    color: var(--muted-color);
+    white-space: nowrap;
+  }
+  .company-list,
+  .role-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .company-list > li {
+    padding: 1.25rem 0 1.5rem;
+    border-bottom: 1px dashed var(--muted-color);
+  }
+  .company-heading,
+  .role-list li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.3rem 2rem;
+    align-items: baseline;
+  }
+  .company-heading h3 {
+    margin: 0;
+    color: var(--yellow-color);
+  }
+  .company-heading > span,
+  .role-list span {
+    color: var(--muted-color);
+    font-size: 0.8em;
+    white-space: nowrap;
+  }
+  .role-list {
+    margin: 0.8rem 0 0.8rem 0.35rem;
+    padding-left: 1rem;
+    border-left: 1px dashed var(--line-color);
+  }
+  .role-list li + li {
+    margin-top: 0.6rem;
+  }
+  h4 {
+    margin: 0;
+    color: var(--purple-color);
+  }
+  .detail {
+    max-width: 42rem;
+    margin: 0;
+  }
+  .continuation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-top: 1.25rem;
+  }
+  .continuation-dots {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    width: 1.5rem;
+  }
+  .continuation-dots span {
+    width: 0.25rem;
+    height: 0.25rem;
+    border-radius: 50%;
+    background: var(--line-color);
+  }
+  @media (max-width: 700px) {
+    .intro img {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+    .company-heading,
+    .role-list li {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .company-heading > span,
+    .role-list span {
+      font-size: 0.875em;
+      white-space: normal;
+    }
+  }
+</style>
