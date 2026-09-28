@@ -80,7 +80,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <section class="directory" aria-label="Explore this site">
     <div class="section-title">
       <span>directory</span>
-      <span aria-hidden="true">/ 04 entries</span>
     </div>
     <a class="entry" href="/projects">
       <span class="index">01</span>
@@ -154,15 +153,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     max-width: 52rem;
   }
   .section-title {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
     border-bottom: 1px dashed var(--line-color);
     padding-bottom: 0.8rem;
     color: var(--accent-color);
-  }
-  .section-title span:last-child {
-    color: var(--muted-color);
   }
   .entry {
     display: grid;
